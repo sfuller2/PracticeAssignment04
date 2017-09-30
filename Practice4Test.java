@@ -26,6 +26,9 @@ public class Practice4Test {
 	
 	public boolean isPalindrome(String item) {
 		clearData();
+		//strips the Object of spaces and punctuation and converts it to all uppercase letters
+		//before comparing palindromes
+		item = item.replaceAll("[^A-Za-z]+", "").toUpperCase();
 		for (int i = 0; i < item.length(); i++) {
 			stack.push(item.substring(i, i+1));
 			queue.enqueue(item.substring(i, i+1));
@@ -84,7 +87,7 @@ public class Practice4Test {
 			}
 			boolean emptiedEarly = false;
 			for (int i = 0; i < size_of_test; i++) {
-				if ( queue.empty() || stack.empty()) {
+				if (queue.empty() || stack.empty()) {
 					emptiedEarly = true;
 				}
 				queue.dequeue();
